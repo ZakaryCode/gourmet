@@ -20,20 +20,30 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/detail/index',
     ],
     window: {
+      backgroundColor: '#EFEFEF',
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
     },
-    cloud: true
+    cloud: true,
+    permission: {
+      'scope.userLocation': {
+        desc: '你的位置信息将用于小程序位置接口的效果展示'
+      }
+    }
   }
 
   componentDidMount () {
     if (process.env.TARO_ENV === 'weapp') {
-      Taro.cloud.init()
+      Taro.cloud.init({
+        env: 'taro-gourmet-jfcsj', // 获取环境ID：前往 云开发控制台-设置-环境ID
+        traceUser: true // 是否要捕捉每个用户的访问记录。设置为true，用户可在管理端看到用户访问记录
+      })
     }
   }
 

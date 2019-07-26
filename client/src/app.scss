@@ -1,0 +1,13 @@
+button {
+//   .after_none {
+    &::after {
+      border: 0;
+    }
+//   }
+}
+
+page {
+  display: block;
+  min-height: 100%;
+  background-color: #EFEFEF;
+}
